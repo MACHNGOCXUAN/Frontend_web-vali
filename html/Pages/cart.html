@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cart</title>
+    <link
+      rel="stylesheet"
+      href="../../font/fontawesome-free-6.5.1-web/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../css/cart.css" />
+    <link
+      rel="stylesheet"
+      href="../../js/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../../css/home.css" />
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header"></header>
+      <div class="container">
+        <div class="container__cart-titile">
+          <h1>Giỏ hàng</h1>
+        </div>
+        <div class="container__content">
+          <div class="container__content-left">
+            <table class="table">
+              <thead>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Số tiền</th>
+                <th>Thao tác</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="container__content-left-container">
+                      <div class="icon">
+                        <input type="checkbox" name="" id="" />
+                      </div>
+                      <div class="tbody__img">
+                        <img
+                          src="../../img/vali1_black.jpeg"
+                          alt=""
+                          width="100%"
+                        />
+                      </div>
+                      <div class="tbody_mota" style="margin-left: 10px">
+                        <p style="font-size: 15px; margin: 0">
+                          Cặp số kinh doanh Leaves King 303
+                        </p>
+                        <p style="font-size: 10px; margin: 0">
+                          Màu sắc : BLACK
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>860.000Đ</td>
+                  <td>
+                    <div class="action">
+                      <input type="button" value="-" class="minus" />
+                      <input
+                        type="number"
+                        class="number"
+                        value="1"
+                        step="1"
+                        inputmode="numeric"
+                      />
+                      <input type="button" value="+" class="plus" />
+                    </div>
+                  </td>
+                  <td><div class="sotien">850.000Đ</div></td>
+                  <td>Xóa</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="container__content-left-container">
+                      <div class="icon">
+                        <input type="checkbox" name="" id="" />
+                      </div>
+                      <div class="tbody__img">
+                        <img
+                          src="../../img/vali1_black.jpeg"
+                          alt=""
+                          width="100%"
+                        />
+                      </div>
+                      <div class="tbody_mota" style="margin-left: 10px">
+                        <p style="font-size: 15px; margin: 0">
+                          Cặp số kinh doanh Leaves King 303
+                        </p>
+                        <p style="font-size: 10px; margin: 0">
+                          Màu sắc : BLACK
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>900.000Đ</td>
+                  <td>
+                    <div class="action">
+                      <input type="button" value="-" class="minus" />
+                      <input
+                        type="number"
+                        class="number"
+                        value="1"
+                        step="1"
+                        inputmode="numeric"
+                      />
+                      <input type="button" value="+" class="plus" />
+                    </div>
+                  </td>
+                  <td>
+                    <div class="sotien">850.000Đ</div>
+                  </td>
+                  <td>Xóa</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="button_cart" style="margin-top: 20px">
+          <button class="quaylai">Tiếp tục xem sản phẩm</button>
+          <button class="capnhat">Cập nhật giỏ hàng</button>
+        </div>
+
+        <div class="container__thanhtoan">
+          <table class="container__thanhtoan-table">
+            <thead>
+              <th><h2>Tổng thanh toán</h2></th>
+              <th><h2 class="thanhtien">2.100.Đ đ</h2></th>
+            </thead>
+            <thead>
+              <th></th>
+              <th><button class="btn-mua">Mua Hàng</button></th>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <footer class="footer">
+        <!-- content -->
+      </footer>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $(".header").load("../layout/header.html");
+        $(".footer").load("../layout/footer.html");
+
+        $(".btn-mua").click(function () {
+          // Chuyển hướng sang trang khác khi click vào nút "Mua Hàng"
+          window.location.href = "./pay.html";
+        });
+
+        $("tr").each(function () {
+          let gia = $(this).find("td:eq(1)").text();
+          $(this).find(".sotien").text(gia);
+        });
+
+        let total = 0;
+        $("tr").each(function () {
+          var priceString = $(this).find("td:eq(3)").text().trim();
+          if (priceString !== "") {
+            var price = parseFloat(priceString.replace(/[^\d]/g, ""));
+            console.log(price);
+            if (!isNaN(price)) {
+              total += price;
+            }
+          }
+        });
+        $(".thanhtien").html(formatCurrency(total));
+
+        $(".minus").click(function () {
+          let total = 0;
+          let currentValue = parseInt($(this).siblings(".number").val());
+          if (currentValue > 1) {
+            $(this)
+              .siblings(".number")
+              .val(currentValue - 1);
+            currentValue -= 1;
+          }
+
+          var row = $(this).closest("tr");
+          var price = parseFloat(
+            row.find("td:eq(1)").text().replace(/[^\d]/g, "")
+          );
+
+          total = currentValue * price;
+          console.log(total);
+          row.find(".sotien").text(formatCurrency(total));
+        });
+
+        $(".plus").click(function () {
+          let currentValue = parseInt($(this).siblings(".number").val());
+          $(this)
+            .siblings(".number")
+            .val(currentValue + 1);
+          currentValue += 1;
+
+          var row = $(this).closest("tr");
+          var price = parseFloat(
+            row.find("td:eq(1)").text().replace(/[^\d]/g, "")
+          );
+
+          total = currentValue * price;
+          console.log(total);
+          row.find(".sotien").text(formatCurrency(total));
+        });
+
+        $(".capnhat").click(function () {
+          var total = 0;
+          $("table tbody tr").each(function () {
+            var checkbox = $(this).find("input[type='checkbox']");
+            if (checkbox.prop("checked")) {
+              var priceString = $(this).find("td:eq(3)").text();
+              var price = parseFloat(priceString.replace(/[^\d]/g, ""));
+              total += price;
+            }
+          });
+          $(".thanhtien").html(formatCurrency(total));
+        });
+      });
+
+      function formatCurrency(number) {
+        return number.toLocaleString("vi-VN", {
+          style: "currency",
+          currency: "VND",
+          minimumFractionDigits: 0,
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var productImgElement = document.getElementById("cartHeader");
+        if (productImgElement) {
+          var productImgSrc = productImgElement.src;
+          console.log("Đường dẫn hình ảnh sản phẩm:", productImgSrc);
+        } else {
+          console.log("Không tìm thấy phần tử cartHeader trong DOM.");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.container__cart-titile {
+  width: 100%;
+  height: 55px;
+  margin-top: 70px;
+  border-radius: 10px;
+  background-color: #ed4b2a;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+}
+
+.container__content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+}
+
+.container__content-left {
+  width: 100%;
+  height: 100%;
+}
+
+.table {
+  width: 100%;
+}
+
+.container__content-left-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container__content-left td {
+  text-align: center;
+}
+
+.icon {
+  width: 10%;
+}
+
+.tbody__img {
+  width: 20%;
+}
+
+.tbody_mota {
+  width: 70%;
+}
+
+tr td:nth-child(1) {
+  width: 50%;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.action {
+  display: flex;
+  margin: auto;
+  border: 1px solid #ddd;
+  width: 68px;
+  height: 30px;
+  border-radius: 5px;
+}
+.minus {
+  border: none;
+  padding: 0 6px;
+  cursor: pointer;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.number {
+  width: 30px;
+  text-align: center;
+  border: 1px solid red;
+}
+
+.plus {
+  border: none;
+  padding: 0 6px;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.sotien {
+  width: 150px;
+  margin: 0 auto;
+}
+
+input[type="button"]:hover {
+  background-color: #c7a199;
+}
+
+.container__thanhtoan {
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: aqua;
+}
+
+.container__thanhtoan-table {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.btn-mua {
+  padding: 10px 50px;
+  margin-top: 20px;
+}
+
+.quaylai {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  border: 2px solid red;
+  background-color: #fff;
+}
+
+.quaylai:hover {
+  background-color: red;
+  color: #fff;
+  transition: all linear 0.5s;
+}
+.capnhat {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: red;
+  color: #fff;
+  border: none;
+}
+
+.btn-mua {
+  background-color: #ed4b2a;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+}
+
+.btn-mua:hover {
+  background-color: red;
+  color: #fff;
+}

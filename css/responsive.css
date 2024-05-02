@@ -1,0 +1,21 @@
+@media (max-width: 1050px) {
+    .header__container {
+      display: none;
+    }
+
+    .navbar__container {
+      display: none;
+    }
+
+    .navbar__mobile {
+      display: block;
+    }
+
+    .header_mobile {
+      display: block;
+    }
+
+    .img-inner {
+      height: 250px;
+    }
+  }

@@ -1,0 +1,16 @@
+<svg width="122" height="122" viewBox="0 0 122 122" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="t6j9hxgx1a">
+            <stop stop-color="#D6FFE0" offset="0%"/>
+            <stop stop-color="#F5F5F5" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="82.397%" y1="86.35%" x2="23.365%" y2="20.533%" id="upx5dl34vb">
+            <stop stop-color="#FFE2C5" offset="0%"/>
+            <stop stop-color="#F68B1F" offset="100%"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <circle fill="url(#t6j9hxgx1a)" cx="61" cy="61" r="61"/>
+        <path d="m60.71 29 4.62 8.002 4.618 7.996h18.474l-4.619 8.003-4.618 8.002L83.802 69l4.619 8.002H69.948l-4.619 8.002L60.711 93l-4.62-7.996L51.474 77H33L37.619 69l4.618-7.996L33 44.998h18.473l4.62-7.996L60.71 29zm0 15.998L56.093 53h-9.237l4.619 8.002L46.855 69h9.237l4.619 8.002L65.329 69h9.237l-4.619-7.997L74.567 53h-9.238l-4.618-8.002zM65.33 53l4.618 8.003-4.619 7.995h-9.237l-4.618-7.995L56.092 53h9.237z" fill="url(#upx5dl34vb)"/>
+    </g>
+</svg>

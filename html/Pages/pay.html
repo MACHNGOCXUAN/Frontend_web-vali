@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh toán</title>
+    <!-- <link rel="stylesheet" href="../../css/defaultPay.css" /> -->
+    <link rel="stylesheet" href="../../css/pay.css" />
+    <link
+      rel="stylesheet"
+      href="../../font/fontawesome-free-6.5.1-web/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../js/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../../css/home.css" />
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../../js/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <!-- content -->
+    </header>
+    <div class="body-pay">
+      <ul class="breadcrumb-checkout px-9">
+        <li><a href="#" title="">Trang chủ / </a></li>
+        <li><a href="#" title="">Giỏ hàng / </a></li>
+        <li>Thanh toán</li>
+      </ul>
+      <div class="alert-checkout">
+        <h5>
+          Giảm giá lên đến 10% cho đơn hàng trên 500.000đ / Giảm giá lên đến 20%
+          cho đơn hàng trên 1.000.000đ, sử dụng mã giảm giá:
+          <strong>MAYBISALE</strong>
+        </h5>
+      </div>
+      <form method="POST" action>
+        <section class="section-checkout px-9">
+          <div class="checkout-left">
+            <h5>ĐỊA CHỈ GIAO HÀNG</h5>
+            <div class="info">
+              <div class="info-name">
+                <h6>Thinh Tran</h6>
+                <a href="#" title="">Chỉnh sửa</a>
+              </div>
+              <h6>0983211112</h6>
+              <h6>47/9 Điện Biên Phủ</h6>
+              <h6>Quận 1, Thành phố Hồ Chí Minh</h6>
+            </div>
+            <button
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#add_new_address"
+              class="add-new-address"
+              title=""
+            >
+              Thêm địa chỉ mới
+            </button>
+            <h5>PHƯƠNG THỨC VẬN CHUYỂN</h5>
+            <section class="delivery">
+              <div class="delivery-item">
+                <div class="btn-delivery">
+                  <input type="radio" name="delivery" checked />
+                </div>
+                <div class="delivery-detail">
+                  <div class="delivery-title">
+                    <svg
+                      width="24px"
+                      height="24px"
+                      viewBox="0 0 24 24"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <title>icon/headline copy 55</title>
+                      <g
+                        id="icon/headline-copy-55"
+                        stroke="none"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"
+                      >
+                        <rect
+                          id="Rectangle"
+                          fill-opacity="0.01"
+                          fill="#FFFFFF"
+                          fill-rule="nonzero"
+                          x="0"
+                          y="0"
+                          width="24"
+                          height="24"
+                        ></rect>
+                        <rect
+                          id="Rectangle"
+                          fill="#FD813B"
+                          x="0"
+                          y="0"
+                          width="24"
+                          height="24"
+                          rx="8"
+                        ></rect>
+                        <image
+                          id="Screenshot-2022-07-05-at-16.41.40"
+                          x="2"
+                          y="8.2247191"
+                          width="20.4262295"
+                          height="7"
+                          xlink:href="data:image/png;base64,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"
+                        ></image>
+                      </g>
+                    </svg>
+                    <strong>Standard Express</strong>
+                  </div>
+                  <div class="delivery-content">
+                    <span
+                      >Phí ship <strong>20.000Đ </strong>- Ngày dự kiến nhận
+                      hàng là <strong>7/7/2022 - 9/7/2022</strong></span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="delivery-item">
+                <div class="btn-delivery">
+                  <input type="radio" name="delivery" />
+                </div>
+                <div class="delivery-detail">
+                  <div class="delivery-title">
+                    <svg
+                      width="24px"
+                      height="24px"
+                      viewBox="0 0 24 24"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <title>icon/headline copy 56</title>
+                      <g
+                        id="icon/headline-copy-56"
+                        stroke="none"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"
+                      >
+                        <rect
+                          id="Rectangle"
+                          fill-opacity="0.01"
+                          fill="#FFFFFF"
+                          fill-rule="nonzero"
+                          x="0"
+                          y="0"
+                          width="24"
+                          height="24"
+                        ></rect>
+                        <rect
+                          id="Rectangle"
+                          fill="#00B14F"
+                          x="0"
+                          y="0"
+                          width="24"
+                          height="24"
+                          rx="8"
+                        ></rect>
+                        <image
+                          id="grab-logo"
+                          x="4"
+                          y="9"
+                          width="16.8813559"
+                          height="6"
+                          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAMCAYAAAAH4W+EAAAABGdBTUEAALGOfPtRkwAAAHhlWElmTU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAABDjLAAAO6AAAAEgAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAACKgAwAEAAAAAQAAAAwAAAAACAsGnwAAAAlwSFlzAAALJwAACxMBn3HZowAAApFJREFUOBG11EtIVUEYwPFzfPTQEiLRHmoZPSDoYS0iDCRIF6EtqmUE7QOxNrVo0aJVSEEPqEWLCiRa6CbiZpsMpBcUGr3MROpqD26it/CRefv/T/dEgW0EB37OzJ05M998Z45BMMslk8mU4Cauou5/2+X9PZCduJvfSpCDETzBjTAMh6lnUlwnH1OwPW2JAiGA+YyeQwVSWIAQLmBgz9GJmRbXMgiDmbbEGWlmtBgTSKMV31GGakQnIWAXdF4DKuGcDrzGXmxABq/QRhYHqePiYapYYxd1LnqQYE4fdRAysIX6IpLoYuAk9T+FOQZiEGtxFgZs/xueYTvm4Cf83dr+cbzDEZRjKXzWTP/Iti+x510zUo8PcNJBBGzs776SQrvw4QHswyjc5CG+YhOcY7AP4AY1+IRjaMQiLMYk3sAD+Jyv6gD7PXXDrTDFo0RmbfH3PfDSurAn+IyFGMdtXMZqGNwXeKFbWNQgO3ECbngYy2Cg55mTYI7rbcYpOGejg7fgyQuY4ANxSdNIYQU+wkzEr+g9bYMtRZyNR7QtBt6brW2bBV/XS/TD4qvzK3RdP5QyF07YwAucJpgioh5DE/2jMMUFcHOLi8b3wEAtblgbtX7/MUjT7vrLYTbd9FA2Y2ZtCbwOHrA3jw37GbxGZz96cJ2+tZutgwEUox3VmEDAc1PM86voQgUa6PveR+AcT20wjzEAL2wfrmAIPuMhzWi3EbuoX0ILVsJUrkIlxuA9aEYSnsTTRs9Rm94z8D3Hp19D2wzaz8Vb3MMduKbXwCBCGOwF9k/b+VM4kenaifhG+2m2M3GIsbm018OHB/nNCxoVxubRqME2eBA3tTYjSeammJNP2w9jB4rgf+z7rk0d/AKwoOm9KvJ2jAAAAABJRU5ErkJggg=="
+                        ></image>
+                      </g>
+                    </svg>
+                    <strong>Grab Express</strong>
+                  </div>
+                  <div class="delivery-content">
+                    <span
+                      >Phí ship <strong>25.000Đ </strong>- Ngày dự kiến nhận
+                      hàng là <strong>7/7/2022 - 9/7/2022</strong></span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="delivery-item">
+                <div class="btn-delivery">
+                  <input type="radio" name="delivery" />
+                </div>
+                <div class="delivery-detail">
+                  <div class="delivery-title">
+                    <svg
+                      width="24px"
+                      height="24px"
+                      viewBox="0 0 24 24"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <title>icon/headline copy 57</title>
+                      <g
+                        id="icon/headline-copy-57"
+                        stroke="none"
+                        stroke-width="1"
+                        fill="none"
+                        fill-rule="evenodd"
+                      >
+                        <rect
+                          id="Rectangle"
+                          fill-opacity="0.01"
+                          fill="#FFFFFF"
+                          fill-rule="nonzero"
+                          x="0"
+                          y="0"
+                          width="24"
+                          height="24"
+                        ></rect>
+                        <rect
+                          id="Rectangle"
+                          fill="#01A10F"
+                          x="0"
+                          y="0"
+                          width="24"
+                          height="24"
+                          rx="8"
+                        ></rect>
+                        <image
+                          id="Screenshot-2022-07-05-at-16.45.21"
+                          x="5"
+                          y="4"
+                          width="14.3548387"
+                          height="15"
+                          xlink:href="data:image/png;base64,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"
+                        ></image>
+                      </g>
+                    </svg>
+                    <strong>Gojek Express</strong>
+                  </div>
+                  <div class="delivery-content">
+                    <span
+                      >Phí ship <strong>30.000Đ </strong>- Ngày dự kiến nhận
+                      hàng là <strong>7/7/2022 - 9/7/2022</strong></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <h5>PHƯƠNG THỨC THANH TOÁN</h5>
+            <section class="payment">
+              <div class="payment-item">
+                <div class="btn-payment">
+                  <input type="radio" name="payment" checked />
+                </div>
+                <div class="payment-detail">
+                  <svg
+                    width="29px"
+                    height="18px"
+                    viewBox="0 0 29 18"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <title>COD</title>
+                    <g
+                      id="Home"
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <g
+                        id="Checkout"
+                        transform="translate(-235.000000, -1218.000000)"
+                      >
+                        <g
+                          id="Group-10-Copy"
+                          transform="translate(169.000000, 667.000000)"
+                        >
+                          <g
+                            id="Group-12-Copy"
+                            transform="translate(0.000000, 349.000000)"
+                          >
+                            <g
+                              id="Group-2-Copy-4"
+                              transform="translate(1.000000, 187.000000)"
+                            >
+                              <g
+                                id="Group-16"
+                                transform="translate(17.000000, 9.000000)"
+                              >
+                                <g
+                                  id="Group"
+                                  transform="translate(48.000000, 6.000000)"
+                                >
+                                  <rect
+                                    id="Rectangle"
+                                    stroke="#283B82"
+                                    x="0.5"
+                                    y="0.5"
+                                    width="28"
+                                    height="17"
+                                  ></rect>
+                                  <image
+                                    id="2560px-PayPal_logo.svg"
+                                    x="3"
+                                    y="5.703125"
+                                    width="22.5882353"
+                                    height="6"
+                                    xlink:href="data:image/png;base64,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"
+                                  ></image>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <h6>Thanh toán khi nhận hàng</h6>
+                </div>
+              </div>
+              <div class="payment-item">
+                <div class="btn-payment">
+                  <input type="radio" name="payment" />
+                </div>
+                <div class="payment-detail">
+                  <svg
+                    width="29px"
+                    height="18px"
+                    viewBox="0 0 29 18"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <title>COD</title>
+                    <g
+                      id="Home"
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <g
+                        id="Checkout"
+                        transform="translate(-235.000000, -1218.000000)"
+                      >
+                        <g
+                          id="Group-10-Copy"
+                          transform="translate(169.000000, 667.000000)"
+                        >
+                          <g
+                            id="Group-12-Copy"
+                            transform="translate(0.000000, 349.000000)"
+                          >
+                            <g
+                              id="Group-2-Copy-4"
+                              transform="translate(1.000000, 187.000000)"
+                            >
+                              <g
+                                id="Group-16"
+                                transform="translate(17.000000, 9.000000)"
+                              >
+                                <g
+                                  id="Group"
+                                  transform="translate(48.000000, 6.000000)"
+                                >
+                                  <rect
+                                    id="Rectangle"
+                                    stroke="#283B82"
+                                    x="0.5"
+                                    y="0.5"
+                                    width="28"
+                                    height="17"
+                                  ></rect>
+                                  <image
+                                    id="2560px-PayPal_logo.svg"
+                                    x="3"
+                                    y="5.703125"
+                                    width="22.5882353"
+                                    height="6"
+                                    xlink:href="data:image/png;base64,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"
+                                  ></image>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <h6>Thẻ tín dụng /ghi nợ</h6>
+                </div>
+              </div>
+              <div class="payment-item">
+                <div class="btn-payment">
+                  <input type="radio" name="payment" />
+                </div>
+                <div class="payment-detail">
+                  <svg
+                    width="29px"
+                    height="18px"
+                    viewBox="0 0 29 18"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <title>COD</title>
+                    <g
+                      id="Home"
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <g
+                        id="Checkout"
+                        transform="translate(-235.000000, -1218.000000)"
+                      >
+                        <g
+                          id="Group-10-Copy"
+                          transform="translate(169.000000, 667.000000)"
+                        >
+                          <g
+                            id="Group-12-Copy"
+                            transform="translate(0.000000, 349.000000)"
+                          >
+                            <g
+                              id="Group-2-Copy-4"
+                              transform="translate(1.000000, 187.000000)"
+                            >
+                              <g
+                                id="Group-16"
+                                transform="translate(17.000000, 9.000000)"
+                              >
+                                <g
+                                  id="Group"
+                                  transform="translate(48.000000, 6.000000)"
+                                >
+                                  <rect
+                                    id="Rectangle"
+                                    stroke="#283B82"
+                                    x="0.5"
+                                    y="0.5"
+                                    width="28"
+                                    height="17"
+                                  ></rect>
+                                  <image
+                                    id="2560px-PayPal_logo.svg"
+                                    x="3"
+                                    y="5.703125"
+                                    width="22.5882353"
+                                    height="6"
+                                    xlink:href="data:image/png;base64,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"
+                                  ></image>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                  <h6>Thanh toán qua Paypal</h6>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="checkout-right">
+            <section class="check-order">
+              <h5>KIỂM TRA ĐƠN HÀNG</h5>
+              <div class="check-item">
+                <div class="check-item-img">
+                  <img src="../../img/vali1_black.jpeg" alt="" />
+                </div>
+                <div class="check-item-info">
+                  <div class="info-header">
+                    <h6>Vali kéo Bamozo nhựa 8801C cao cấp</h6>
+                    <div class="check-option">
+                      <div class="color-size">
+                        <div class="colors" style="--color-option-var: #56ab63">
+                          <select class="select-color">
+                            <option value="#56AB63">Xanh lá</option>
+                            <option value="#C23E16">Đỏ</option>
+                            <option value="#F7AB3A">Cam</option>
+                          </select>
+                        </div>
+                      </div>
+                      <input
+                        class="select-number"
+                        type="text"
+                        name="select-number"
+                        value="1"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="info-price">
+                    <span>850.000Đ</span>
+                  </div>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-item-img">
+                  <img src="../../img/vali1_pink.jpeg" alt="" />
+                </div>
+                <div class="check-item-info">
+                  <div class="info-header">
+                    <h6>Vali kéo Bamozo nhựa 8801C cao cấp</h6>
+                    <div class="check-option">
+                      <div class="color-size">
+                        <div class="colors" style="--color-option-var: #56ab63">
+                          <select class="select-color">
+                            <option value="#56AB63">Xanh lá</option>
+                            <option value="#C23E16">Đỏ</option>
+                            <option value="#F7AB3A">Cam</option>
+                          </select>
+                        </div>
+                      </div>
+                      <input
+                        class="select-number"
+                        type="text"
+                        name="select-number"
+                        value="1"
+                        readonly
+                      />
+                    </div>
+                    <div></div>
+                  </div>
+                  <div class="info-price">
+                    <span>850.000Đ</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="checkout-summary">
+              <div class="summary-content">
+                <h5>TỔNG QUAN ĐƠN HÀNG</h5>
+                <div class="voucher-select">
+                  <h6>Chọn hoặc nhập mã giảm giá</h6>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#add-voucher"
+                    title=""
+                  >
+                    Chọn & nhập
+                  </button>
+                </div>
+                <div class="checkout-gift-card">
+                  <h6>Thẻ quà tặng</h6>
+                  <div class="coupon-typing">
+                    <div class="coupon-number">
+                      <input
+                        class="coupon-number-serial"
+                        type="text"
+                        name="card-number"
+                        placeholder="Số thẻ *"
+                        required
+                      />
+                      <input
+                        class="coupon-pin"
+                        type="text"
+                        name="pin"
+                        placeholder="PIN *"
+                        required
+                      />
+                    </div>
+                    <button class="submit-coupon" type="submit">
+                      Xác nhận
+                    </button>
+                  </div>
+                </div>
+                <div class="checkout-pricing-info">
+                  <div class="checkout-pricing-info-item">
+                    <h6>Đơn giá sản phẩm:</h6>
+                    <strong>2.550.000Đ</strong>
+                  </div>
+                  <div class="checkout-pricing-info-item">
+                    <h6>Phí vận chuyển:</h6>
+                    <strong>20.000Đ</strong>
+                  </div>
+                  <div class="checkout-pricing-info-item">
+                    <h6>Mã giảm giá:</h6>
+                    <strong>0Đ</strong>
+                  </div>
+                  <div class="checkout-pricing-info-item">
+                    <h6>Thẻ quà tặng:</h6>
+                    <strong>0Đ</strong>
+                  </div>
+                </div>
+                <div class="pricing-info-total">
+                  <h6>Thành tiền</h6>
+                  <strong>2.570.000Đ</strong>
+                </div>
+                <div class="checkout-bonus">
+                  <h6>Điểm thưởng của bạn là <strong>50</strong></h6>
+                </div>
+                <button class="submit-checkout" type="submit">
+                  <strong>Đặt hàng</strong>
+                </button>
+              </div>
+            </section>
+          </div>
+        </section>
+      </form>
+
+      <!-- modal address -->
+
+      <div
+        class="modal fade"
+        id="add_new_address"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <h5 class="modal-title text-center">Nhập địa chỉ giao hàng</h5>
+              <div class="modal-wrapper">
+                <div class="mx-5 my-3">
+                  <input
+                    id="hoten"
+                    type="text"
+                    class="form-control rounded-pill hoten"
+                    placeholder="Họ & tên*"
+                  />
+                </div>
+                <div class="mx-5 my-3">
+                  <input
+                    id="sdt"
+                    type="text"
+                    class="form-control rounded-pill sdt"
+                    placeholder="Số điện thoại*"
+                  />
+                </div>
+                <div class="mx-5 my-3">
+                  <select
+                    id="city"
+                    name="province-city"
+                    placeholder="Tỉnh / Thành phố"
+                    class="form-select rounded-pill"
+                  >
+                    <option value="">Tỉnh / Thành phố</option>
+                    <option value="An Giang">An Giang</option>
+                    <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
+                    <option value="Bắc Giang">Bắc Giang</option>
+                    <option value="Bắc Kạn">Bắc Kạn</option>
+                    <option value="Bạc Liêu">Bạc Liêu</option>
+                    <option value="Bắc Ninh">Bắc Ninh</option>
+                    <option value="Bến Tre">Bến Tre</option>
+                    <option value="Bình Định">Bình Định</option>
+                    <option value="Bình Dương">Bình Dương</option>
+                    <option value="Bình Phước">Bình Phước</option>
+                  </select>
+                </div>
+                <div class="mx-5 my-3">
+                  <input
+                    id="diachi"
+                    type="text"
+                    class="form-control rounded-pill dc"
+                    placeholder="Tên nhà, tòa nhà, số nhà*"
+                  />
+                </div>
+              </div>
+              <div
+                class="mx-5 my-3 d-flex justify-content-between default-address"
+              >
+                <h6>Đặt làm địa chỉ mặc định</h6>
+                <input type="checkbox" id="switch" />
+                <label for="switch" class="switch-default-address"></label>
+              </div>
+              <div class="mx-5 my-3">
+                <button class="w-100 rounded-pill py-2 btn-luu" type="button">
+                  Lưu thông tin
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal voucher -->
+      <div
+        id="add-voucher"
+        class="modal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <h5 class="modal-title text-center">
+                Chọn hoặc nhập địa chỉ giảm giá
+              </h5>
+              <div class="mx-4 my-3 row">
+                <div class="col-8">
+                  <input
+                    type="text"
+                    class="form-control rounded-pill"
+                    placeholder="Nhập mã giảm giá"
+                  />
+                </div>
+                <div class="col-4">
+                  <button type="submit" class="btn-Apdung">Áp dụng</button>
+                </div>
+                <hr />
+              </div>
+              <div class="mx-5">
+                <div class="form-group d-flex mb-2">
+                  <input type="radio" name="vourch" id="" class="" />
+                  <img
+                    src="../../img/vou-1.png"
+                    alt=""
+                    width="100%"
+                    class="ms-2"
+                  />
+                </div>
+                <div class="form-group d-flex">
+                  <input type="radio" name="vourch" id="" />
+                  <img
+                    src="../../img/vou-2.png"
+                    alt=""
+                    width="100%"
+                    class="ms-2"
+                  />
+                </div>
+              </div>
+              <div class="mx-5 my-3">
+                <button class="w-100 rounded-pill py-2 btn-dongy" type="button">
+                  Đồng ý
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <!-- content -->
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        $(".header").load("../layout/header.html");
+        $(".footer").load("../layout/footer.html");
+
+        $(".add-new-address").click(function () {
+          $("#add_new_address").modal("show");
+        });
+
+        $(".btn-luu").click(function () {
+          let hoten = $(".hoten").val();
+          let sdt = $(".sdt").val();
+          let city = $("#city").val();
+          let diachi = $(".dc").val();
+
+          let info = document.querySelector(".info");
+          info.innerHTML = `<div class="info-name">
+                <h6>${hoten}</h6>
+                <a href="#" title="">Chỉnh sửa</a>
+              </div>
+              <h6>${sdt}</h6>
+              <h6>${city}</h6>
+              <h6>${diachi}</h6>`;
+        });
+      });
+      //change color
+      const colors = document.querySelectorAll(".colors");
+      const list_colors = document.querySelectorAll(".select-color");
+      list_colors.forEach((select_color) => {
+        select_color.onchange = function (e) {
+          var parent = select_color.closest(".colors");
+          parent.style.setProperty("--color-option-var", select_color.value);
+        };
+      });
+    </script>
+  </body>
+</html>

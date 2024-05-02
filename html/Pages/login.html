@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Đăng nhập</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="shortcut icon" href="../../img/icon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../../css/login.css" />
+  <link rel="stylesheet" href="../../font/fontawesome-free-6.5.1-web/css/all.min.css" />
+  <link rel="stylesheet" href="../../js/bootstrap-5.3.3-dist/css/bootstrap.min.css" class="" />
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="../../js/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+  <script src="../../js/login.js"></script>
+</head>
+
+<body>
+  <div class="auth-page-wrapper pt-5">
+    <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
+      <div class="bg-overlay"></div>
+
+      <div class="shape">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 1440 120">
+          <path d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"></path>
+        </svg>
+      </div>
+      <canvas class="particles-js-canvas-el" width="3810" height="760" style="width: 100%; height: 100%"></canvas>
+    </div>
+
+    <div class="auth-page-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="text-center mt-sm-5 mb-4 text-white-50">
+              <div>
+                <a class="logo" href="trangchu.html">VALI.COM</a>
+              </div>
+              <p class="mt-3 fs-15 fw-medium">
+                Cửa hàng vali, túi xách chính hãng 2024
+            </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="card mt-4">
+              <div class="card-body p-4">
+                <div class="text-center mt-2">
+                  <h5 class="text-primary">Xin chào</h5>
+                <p class="text-muted">Đăng nhập để tiếp tục!</p>
+                </div>
+                <div class="p-2 mt-4">
+                  <form action="" id="frm_login">
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Tên đăng nhập<span class="text-danger">*</span></label>
+                      <input type="text" name="username" class="form-control" id="username"/>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label" for="password-input">Mật khẩu<span class="text-danger">*</span></label>
+                      <div class="position-relative auth-pass-inputgroup mb-3">
+                        <input type="password" name="password" class="form-control pe-5 password-input" id="password-input" />
+                      </div>
+                    </div>
+
+                    <div class="mt-4">
+                      <button class="btn btn-success w-100" type="submit">
+                         Đăng nhập
+                      </button>
+                    </div>
+
+                    <div class="mt-4 text-center">
+                      <div class="signin-other-title">
+                        <h5 class="fs-13 mb-4 title">Đăng nhập với</h5>
+                      </div>
+                      <div>
+                        <button type="button" class="btn btn-primary btn-icon waves-effect waves-light">
+                          <i class="fa-brands fa-facebook"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-icon waves-effect waves-light">
+                          <i class="fa-brands fa-google"></i>
+                        </button>
+                        <button type="button" class="btn btn-dark btn-icon waves-effect waves-light">
+                          <i class="fa-brands fa-github"></i>
+                        </button>
+                        <button type="button" class="btn btn-info btn-icon waves-effect waves-light">
+                          <i class="fa-brands fa-x-twitter"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 text-center">
+              <p class="mb-0">
+                Bạn chưa có tài khoản? Chọn
+                <a href="signup.html" class="fw-semibold text-primary text-decoration-underline">
+                  Đăng ký
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer start-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="text-center">
+              <p class="mb-0 text-muted">
+                © 2024 Vali.com. Crafted with
+                <i class="mdi mdi-heart text-danger"></i> by Vali.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
